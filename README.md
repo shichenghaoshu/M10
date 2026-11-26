@@ -7,13 +7,17 @@ RK3566、ESP32-S3 与两驱差速底盘组成的家庭陪伴机器人实验项�
 ## 从哪里开始
 
 - [技术方案总览](docs/technical-summary.md)
+- [代码导读与模块实现](docs/implementation-guide.md)
 - [系统架构与协议边界](docs/architecture.md)
+- [HTTP、WebSocket 与电机协议](docs/interfaces.md)
 - [视觉跟踪算法](docs/tracking.md)
 - [电机接线与执行器](docs/hardware-and-actuators.md)
 - [Beni、幻尔与陆吾](docs/domestic-options.md)
 - [强化学习与 Sim-to-Real](docs/reinforcement-learning.md)
 - [开源小车参考分析](docs/upstream-analysis.md)
 - [验证结果与已知限制](docs/validation.md)
+- [问题清单与开发路线](docs/problem-log.md)
+- [从零复现与验收步骤](docs/reproduction.md)
 - [完整技术汇报 PPT](docs/presentations/M10_technical_overview.pptx)
 
 ## 当前实现与验证边界
@@ -28,6 +32,26 @@ RK3566、ESP32-S3 与两驱差速底盘组成的家庭陪伴机器人实验项�
 | 强化学习 | Beni 公开策略分析与自身平台训练计划 | M10 专属模型、训练权重与实机部署 |
 
 历史板端测量来自 2026 年 8 月记录，方案整理于 2026 年 11 月。不能把纯模型 FPS 当成整机跟踪速度，不能把串口 ACK 当成轮子真实运动证据。
+
+### 三种证据要分开看
+
+| 标记 | 在本仓库中的含义 | 例子 |
+| --- | --- | --- |
+| 有代码 / 主机通过 | 实现可以阅读，相关逻辑通过主机测试 | IoU 关联、CRC 编解码、表情状态切换 |
+| 历史实机记录 | 特定硬件、系统和模型组合下有过测量 | UVC 取流、单帧推理、电机点动 |
+| 待实现 / 待集成 | 接口、实验或工程路线已经设计 | 固定目标锁定、V2 统一适配、M10 专属 RL |
+
+主机验证入口是 `scripts/check.sh`。初次公开版本的 [GitHub Actions](https://github.com/shichenghaoshu/M10/actions/runs/45834323263) 已通过；每次新提交的结果以 [Actions 页面](https://github.com/shichenghaoshu/M10/actions) 为准。
+
+## 工程中真正需要解决什么
+
+1. **把三个电机接口收敛为一个。** Linux 主控发送 `forward\n`，视觉 C++ 使用带 CRC 的文本帧，ESP32 正式候选使用 V2 二进制帧；目前不能直接混接。
+2. **让跟踪对象持续保持同一目标。** 当前同类 IoU 关联适合建立基线，仍缺固定目标锁定、时间戳新鲜度门控和遮挡重捕获。
+3. **降低采集到动作的总延迟。** Android 的单帧采集比模型推理更慢，先改常驻采集与最新帧队列，再评估模型优化。
+4. **区分“收到命令”和“实际运动”。** 串口打开、ACK、目标 PWM、编码器轮速是不同层次的证据，当前尚未形成轮速闭环。
+5. **把语音和动作接入统一状态管理。** 已有音频 I/O 与表情播放器，端到端 ASR / LLM / TTS、打断和运动仲裁还需集成。
+
+详细原因、对应源码和验收条件见 [问题清单](docs/problem-log.md)。本次公开的是实现与问题本身，而不是把后续路线写成完成项。
 
 ## 目录
 
