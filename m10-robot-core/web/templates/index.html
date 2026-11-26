@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>M10 Robot Core</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <main class="layout">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">M10 Robot Core</p>
+          <h1>{{ device.name }}</h1>
+          <p class="subtitle">Real hardware visibility for RK3566 and VMware bring-up.</p>
+        </div>
+        <div class="hero-meta">
+          <div><span>Device ID</span><strong>{{ device.id }}</strong></div>
+          <div><span>Model</span><strong>{{ device.model }}</strong></div>
+          <div><span>Firmware</span><strong>{{ device.firmware_version }}</strong></div>
+        </div>
+      </header>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Robot Status</h2>
+          <button id="refresh-button" class="secondary">Refresh</button>
+        </div>
+        <div id="status-grid" class="status-grid"></div>
+      </section>
+
+      <section class="panel">
+        <h2>Controls</h2>
+        <div class="controls">
+          <button data-endpoint="/api/control/forward">forward</button>
+          <button data-endpoint="/api/control/backward">backward</button>
+          <button data-endpoint="/api/control/left">left</button>
+          <button data-endpoint="/api/control/right">right</button>
+          <button data-endpoint="/api/control/stop" class="danger">stop</button>
+          <button data-endpoint="/api/control/status">status</button>
+          <button data-endpoint="/api/video/snapshot">snapshot</button>
+          <button data-endpoint="/api/audio/test">audio test</button>
+          <button data-endpoint="/api/display/face/idle">display test</button>
+          <button data-endpoint="/api/server/heartbeat">server heartbeat</button>
+        </div>
+        <div class="controls display-controls">
+          <button data-endpoint="/api/display/face/idle">idle</button>
+          <button data-endpoint="/api/display/face/happy">happy</button>
+          <button data-endpoint="/api/display/face/moving">moving</button>
+          <button data-endpoint="/api/display/face/low_battery">low_battery</button>
+          <button data-endpoint="/api/display/face/error">error</button>
+          <button data-endpoint="/api/display/face/sleep">sleep</button>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Latest Command Result</h2>
+        <pre id="command-output">Waiting for command...</pre>
+      </section>
+
+      <section class="panel">
+        <h2>Recent Logs</h2>
+        <pre id="log-output">Loading...</pre>
+      </section>
+    </main>
+    <script src="/static/app.js"></script>
+  </body>
+</html>

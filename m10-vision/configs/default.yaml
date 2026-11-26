@@ -1,0 +1,29 @@
+device:
+  platform: android
+  target: rk3566
+camera:
+  backend: camera2
+  id: "109"
+  device: /dev/video9
+  width: 1280
+  height: 720
+  fps: 30
+  pixel_format: MJPG
+  rotation: 90
+models:
+  detector:
+    path: models/ssd_inception_v2_rknn_1.0.0.rknn
+    requested_path: models/yolov8n_int8.rknn
+    input_size: 300
+    confidence: 0.45
+    nms: 0.45
+tracking: { enabled: true, max_lost: 30, match_threshold: 0.3 }
+identity: { threshold: 0.55, reverify_interval_s: 5, min_face_size: 80, min_samples: 10 }
+gesture: { enabled: true, hold_ms: 800, cooldown_ms: 2000, keypoint_threshold: 0.45 }
+motor: { backend: mock, serial_device: auto, baudrate: 115200, heartbeat_ms: 500, ack_timeout_ms: 300 }
+control: { center_dead_zone: 0.12, target_area_min: 0.05, target_area_max: 0.25, target_lost_frames: 15, max_forward_duration_ms: 300, max_rotate_duration_ms: 250, command_cooldown_ms: 100, confidence_threshold: 0.45 }
+search: { rotate_speed: 25, step_duration_ms: 300, settle_duration_ms: 200, max_steps: 12, total_timeout_s: 30, reacquire_confirm_frames: 4 }
+safety: { camera_timeout_ms: 1000, inference_timeout_ms: 1500, stop_on_unknown_path: true, max_continuous_move_ms: 500 }
+server: { host: 0.0.0.0, port: 8080, auth_enabled: true }
+privacy: { save_raw_video: false, save_event_snapshots: true, retain_days: 7 }
+

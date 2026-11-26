@@ -1,0 +1,181 @@
+:root {
+  color-scheme: light;
+  --bg: #eef2f4;
+  --panel: #ffffff;
+  --ink: #17212b;
+  --muted: #5f7083;
+  --line: #d5dde4;
+  --accent: #0f6b6f;
+  --danger: #b53c3c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(180deg, #edf4f7 0%, #f6f1eb 100%);
+  color: var(--ink);
+  font-family: "SF Pro Text", "PingFang SC", "Helvetica Neue", sans-serif;
+}
+
+.layout {
+  width: min(1180px, calc(100vw - 32px));
+  margin: 24px auto 48px;
+}
+
+.hero,
+.panel {
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 22px;
+  box-shadow: 0 18px 48px rgba(24, 37, 53, 0.08);
+  backdrop-filter: blur(18px);
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 28px;
+  margin-bottom: 18px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(34px, 5vw, 56px);
+  line-height: 0.95;
+}
+
+.subtitle {
+  margin: 12px 0 0;
+  color: var(--muted);
+  max-width: 560px;
+}
+
+.hero-meta {
+  min-width: 260px;
+  display: grid;
+  gap: 14px;
+  align-content: start;
+}
+
+.hero-meta div {
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: #f4f8fa;
+}
+
+.hero-meta span {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.hero-meta strong {
+  display: block;
+  margin-top: 6px;
+  font-size: 16px;
+}
+
+.panel {
+  padding: 24px;
+  margin-bottom: 18px;
+}
+
+.panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.status-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.status-card {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 14px;
+  background: #fbfcfd;
+}
+
+.status-card h3 {
+  margin: 0 0 8px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+}
+
+.status-card strong {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.display-controls {
+  margin-top: 12px;
+}
+
+button {
+  border: none;
+  border-radius: 999px;
+  padding: 12px 18px;
+  background: var(--accent);
+  color: white;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+button.secondary {
+  background: #31414f;
+}
+
+button.danger {
+  background: var(--danger);
+}
+
+pre {
+  margin: 0;
+  padding: 18px;
+  background: #101722;
+  color: #d7e5f0;
+  border-radius: 16px;
+  overflow: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+@media (max-width: 800px) {
+  .hero {
+    flex-direction: column;
+  }
+
+  .layout {
+    width: min(100vw - 16px, 1180px);
+    margin-top: 12px;
+  }
+}

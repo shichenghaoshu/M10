@@ -1,0 +1,20 @@
+name: Host checks
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  host:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install build tools
+        run: sudo apt-get update && sudo apt-get install -y ninja-build libgl1 libglib2.0-0
+      - name: Install Python dependencies
+        run: python -m pip install -r m10-robot-core/requirements.txt -r m10-face-ui/requirements-dev.txt
+      - name: Check source and run host tests
+        run: bash scripts/check.sh

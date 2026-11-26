@@ -1,0 +1,4 @@
+device: { platform: linux, target: rk3566 }
+camera: { backend: v4l2, device: /dev/video0, width: 1280, height: 720, fps: 30 }
+motor: { backend: mock }
+

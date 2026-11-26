@@ -1,0 +1,13 @@
+{
+  "name": "ssd_inception_v2",
+  "source": "https://github.com/airockchip/rknpu2/blob/1346f96/examples/rknn_ssd_demo/model/ssd_inception_v2.rknn",
+  "source_commit": "1346f96",
+  "license": "Apache-2.0 repository license",
+  "format": "RKNN",
+  "input": "1x300x300x3 UINT8 NHWC",
+  "quantization": "INT8 affine asymmetric outputs",
+  "toolkit_runtime_series": "RKNN Toolkit2/RKNPU2 1.0.0",
+  "target": "RK3566/RK356X RKNPU2",
+  "sha256": "3aa23fc18e6f5f087c0aadc1e9828efe07cb0f792e0ce62e1ebd1e04e1905b62"
+}
+

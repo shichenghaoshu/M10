@@ -1,0 +1,4 @@
+device: { platform: android, target: rk3566 }
+camera: { backend: camera2, id: "109", device: /dev/video9, width: 1280, height: 720, fps: 30, rotation: 90 }
+motor: { backend: mock }
+

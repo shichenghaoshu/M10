@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=M10 Face Kiosk
+Exec=/opt/m10-face-ui/scripts/start-kiosk.sh
+X-GNOME-Autostart-enabled=true
+Terminal=false

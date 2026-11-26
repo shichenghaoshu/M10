@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+pyserial
+PyYAML
+requests
+pydantic
+aiofiles
+python-multipart
+opencv-python
+jinja2
+Pillow
+pytest

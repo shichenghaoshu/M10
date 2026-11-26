@@ -1,0 +1,17 @@
+[Unit]
+Description=M10 independent face UI service
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=m10
+WorkingDirectory=/opt/m10-face-ui
+EnvironmentFile=-/opt/m10-face-ui/.env
+ExecStart=/opt/m10-face-ui/scripts/start.sh
+Restart=always
+RestartSec=2
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

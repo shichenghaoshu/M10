@@ -1,0 +1,57 @@
+device:
+  id: "m10-dev-001"
+  name: "M10 Prototype"
+  model: "M10-RK3566-V0.1"
+  firmware_version: "0.1.0"
+
+serial:
+  enabled: true
+  port_candidates:
+    - "/dev/ttyUSB0"
+    - "/dev/ttyACM0"
+    - "/dev/ttyS0"
+    - "/dev/ttyS1"
+    - "/dev/ttyS2"
+    - "/dev/ttyS3"
+  baudrate: 115200
+  timeout: 1.0
+
+video:
+  enabled: true
+  device_candidates:
+    - "/dev/video0"
+    - "/dev/video1"
+  width: 640
+  height: 480
+  fps: 15
+  snapshot_path: "data/snapshots"
+
+display:
+  enabled: true
+  width: 480
+  height: 320
+  preview_path: "data/display_preview.png"
+
+audio:
+  enabled: true
+  record_seconds: 3
+  test_wav_path: "data/test.wav"
+
+server:
+  enabled: false
+  base_url: "http://127.0.0.1:9000"
+  device_register_endpoint: "/api/devices/register"
+  heartbeat_endpoint: "/api/devices/heartbeat"
+  status_endpoint: "/api/devices/status"
+  log_endpoint: "/api/devices/logs"
+  command_poll_endpoint: "/api/devices/commands/poll"
+  command_ack_endpoint: "/api/devices/commands/ack"
+  token: ""
+
+web:
+  host: "0.0.0.0"
+  port: 8000
+
+safety:
+  obstacle_stop_distance_mm: 250
+  enable_emergency_stop: true
