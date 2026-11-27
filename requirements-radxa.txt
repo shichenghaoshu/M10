@@ -1,0 +1,3 @@
+# The vendored Dreamupers driver uses the libgpiod 1.x Python API.
+gpiod==1.5.4
+python-periphery==2.4.1

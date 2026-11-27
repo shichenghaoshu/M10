@@ -9,6 +9,9 @@ trap 'rm -rf "$tmp_dir"' EXIT
 (cd "$root_dir/m10-robot-core" && "$python_bin" -m pytest tests -q)
 (cd "$root_dir/m10-face-ui" && "$python_bin" -m pytest tests -q)
 (cd "$root_dir/m10-hardware-test" && "$python_bin" -m pytest tests -q)
+(cd "$root_dir" && "$python_bin" -m pytest m10_runtime/tests -q)
+(cd "$root_dir" && ./m10.sh --no-install doctor)
+bash -n "$root_dir/m10.sh"
 
 for test_name in test_motor_control_core test_m10_protocol_core; do
   c++ -std=c++17 -Wall -Wextra -pedantic \

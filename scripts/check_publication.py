@@ -5,7 +5,7 @@ import re
 import sys
 
 ROOT=Path(__file__).resolve().parents[1]
-SKIP={'.git','.venv','venv','build','__pycache__','.pytest_cache','.gradle','node_modules'}
+SKIP={'.git','.venv','venv','.m10','build','__pycache__','.pytest_cache','.gradle','node_modules'}
 PATTERNS={
     'private-key-material':re.compile(r'-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----'),
     'github-token':re.compile(r'(?:gh[pousr]_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{30,})'),

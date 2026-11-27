@@ -1,5 +1,7 @@
 # 架构与协议边界
 
+新增统一启动入口见 [one-click.md](one-click.md)：`m10_runtime/` 已整合人工遥控、表情、可选图传和 ESP32 V2；下述感知 / 自动行为分层仍是目标架构，尚未完成连续跟随集成。
+
 ```mermaid
 flowchart TD
   A["摄像头与音频"] --> B["RK3566 感知服务"]

@@ -15,6 +15,10 @@ jobs:
       - name: Install build tools
         run: sudo apt-get update && sudo apt-get install -y ninja-build libgl1 libglib2.0-0
       - name: Install Python dependencies
-        run: python -m pip install -r m10-robot-core/requirements.txt -r m10-face-ui/requirements-dev.txt
+        run: python -m pip install -r requirements-runtime.txt -r m10-robot-core/requirements.txt -r m10-face-ui/requirements-dev.txt
       - name: Check source and run host tests
         run: bash scripts/check.sh
+      - name: First-run installer in an isolated environment
+        run: ./m10.sh doctor
+      - name: Verify pinned media component and generated configuration
+        run: .m10/venv/bin/python -m m10_runtime.verify_media

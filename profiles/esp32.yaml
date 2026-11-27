@@ -1,0 +1,4 @@
+media:
+  input_format: mjpeg
+  video_size: 1280x720
+  encoder: libx264

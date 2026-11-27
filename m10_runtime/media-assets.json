@@ -1,0 +1,14 @@
+{
+  "version": "v1.21.4",
+  "repository": "https://github.com/bluenviron/mediamtx",
+  "assets": {
+    "amd64": {
+      "url": "https://github.com/bluenviron/mediamtx/releases/download/v1.21.4/mediamtx_v1.21.4_linux_amd64.tar.gz",
+      "sha256": "be0c05d9c8af8338116977e7f1c3fcb409fbf882075e5ab075cf8baad76a59d2"
+    },
+    "arm64": {
+      "url": "https://github.com/bluenviron/mediamtx/releases/download/v1.21.4/mediamtx_v1.21.4_linux_arm64.tar.gz",
+      "sha256": "47784081da54c0608ea4dc359f5cfb19880209434769c532b3ed3a67ea99c29d"
+    }
+  }
+}

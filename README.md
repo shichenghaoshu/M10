@@ -4,9 +4,32 @@ RK3566、ESP32-S3 与两驱差速底盘组成的家庭陪伴机器人实验项�
 
 **这是多个独立验证模块的源码快照，整机连续跟随与语音闭环仍在开发。** Android 实机路线与 Linux 工程分别保留，避免把单模块测试写成整机完成。
 
+## 一键复刻
+
+```bash
+git clone https://github.com/shichenghaoshu/M10.git
+cd M10
+./m10.sh
+```
+
+启动器自动创建本地虚拟环境、安装固定版本依赖并启动统一控制台。默认电脑演示可切换 10 组表情、测试遥控与急停；电机明确标记为模拟，相机和传感器缺失时不生成假数据。打开终端打印的链接即可配对。
+
+Dreamupers 的原版遥控页、Radxa 电机驱动、INA226 驱动和 FFmpeg / MediaMTX 路线已接入新运行器，固定来源与 MIT 署名保留。硬件配置可选：
+
+```bash
+./m10.sh doctor
+./m10.sh esp32 --serial /dev/ttyUSB0 --arm
+./m10.sh radxa --arm --stream
+```
+
+实体模式需匹配接线、固件、系统权限和相机 / 编码驱动；`--arm` 启用实体后端，启动本身不产生非零运动。该入口面向桌面 / Linux，不自动替换 Android 系统。连续目标跟踪与 RL 仍在各自实验路线中。
+
+完整配置、首次图传下载、接口与验收边界见 **[一键复刻指南](docs/one-click.md)**。
+
 ## 从哪里开始
 
 - [技术方案总览](docs/technical-summary.md)
+- [一键复刻与 Dreamupers 集成](docs/one-click.md)
 - [代码导读与模块实现](docs/implementation-guide.md)
 - [系统架构与协议边界](docs/architecture.md)
 - [HTTP、WebSocket 与电机协议](docs/interfaces.md)
@@ -65,6 +88,9 @@ video/              Web 播放器使用的 10 组表情资源
 cad/                既有 CAD 自动化脚本
 docs/               技术总结、原始设计笔记与 PPT
 scripts/            发布扫描和本机测试入口
+m10_runtime/        一键启动、统一控制、V2 适配与媒体管理
+profiles/           电脑、ESP32、Radxa 配置
+third_party/        Dreamupers 原版源码快照与来源清单
 ```
 
 ## 快速验证

@@ -1,0 +1,33 @@
+host: 127.0.0.1
+port: 8000
+lease_ms: 250
+speed_percent: 20
+serial_port: /dev/ttyUSB0
+baudrate: 115200
+ack_timeout_ms: 180
+gpio:
+  ain2_line: 11
+  ain1_line: 12
+  stby_line: 19
+  bin1_line: 4
+  bin2_line: 7
+  laser_line: 6
+  pwm_a_channel: 12
+  pwm_b_channel: 14
+  frequency: 100
+sensor:
+  enabled: false
+  device: /dev/i2c-4
+  address: 64
+media:
+  enabled: false
+  device: /dev/video0
+  input_format: nv12
+  video_size: 1920x1440
+  framerate: 30
+  encoder: h264_rkmpp
+  bitrate_mbps: 1
+  ffmpeg: ffmpeg
+  mediamtx: .m10/bin/mediamtx
+  rtsp_port: 8554
+  hls_port: 8888

@@ -1,0 +1,2 @@
+# Keep the pinned upstream snapshot byte-for-byte, including its whitespace.
+third_party/dreamupers/rk3566-ipc-car-public/** -text -whitespace

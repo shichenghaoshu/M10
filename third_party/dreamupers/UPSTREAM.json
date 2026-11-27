@@ -1,0 +1,67 @@
+{
+  "repository": "https://github.com/Dreamupers/rk3566-ipc-car-public",
+  "commit": "c6d6b428322cf0311b0059f7d5bdd287b4bf65a2",
+  "license": "MIT",
+  "files": [
+    {
+      "path": ".gitignore",
+      "git_blob": "51c3d881a9ce17da2041bc32c017dacc93bc8237",
+      "sha256": "0ea3f3a0bf4cde2293a4b498ec129ae12c1af228951ca977e6fc90a8f213d4a8"
+    },
+    {
+      "path": "LICENSE",
+      "git_blob": "1a0f9f2a4d0864d39ed04da3ae9ea601335e6975",
+      "sha256": "790ce5485b714a6bc9dbd217604279b740bae888cb05cf614e33286c4753776d"
+    },
+    {
+      "path": "README.md",
+      "git_blob": "97ffc35ede28fba0cf8a14abc4778461dd569495",
+      "sha256": "56371936f2166614c2adb8a9c059700c88b6fe0e572add95a8fc10847a7e9d38"
+    },
+    {
+      "path": "motor.py",
+      "git_blob": "08df028b4301d05962a93feac023f7b985f23303",
+      "sha256": "a5bcb7bfca538d938e18240d5f57e5449c97c940a02bf46748bb4b0cc0ebd928"
+    },
+    {
+      "path": "rtsp/LICENSE",
+      "git_blob": "50bbbd83dda24db053ea0ce1d292a90c290c69ee",
+      "sha256": "ecae73b0a23185a35a1222edc0aae5245bb9739420bad0125b0c42e935301a80"
+    },
+    {
+      "path": "rtsp/ffmpeg_cmd.json",
+      "git_blob": "3699f437580f467ac452e4ecc9c3777eccec3425",
+      "sha256": "e47c7f37ef4eeab4a1ee2726705cb6a13edf2bd42d06502705347cfaeef37cbb"
+    },
+    {
+      "path": "rtsp/mediamtx.yml",
+      "git_blob": "014789688add5d2366c9df8bbb0b7527836de6f3",
+      "sha256": "c8f8276ae76dfb18140f04446e6793080c93086442035c5fa244075584b190ea"
+    },
+    {
+      "path": "templates/manifest.webmanifest",
+      "git_blob": "bd3f4c6477118e931e975b66182c9f82af03c95e",
+      "sha256": "0461d81b9193c82cc66d94a78a159f29660baef7315e8e67222c08a8a82f50d3"
+    },
+    {
+      "path": "templates/ws_index.html",
+      "git_blob": "62cc50db7ecddd552e58694654b702a26d95dca8",
+      "sha256": "192299748d69ce1eb0ad29e7f9518431c7d1825e123d949923b8e852e3dbeb44"
+    },
+    {
+      "path": "vc.py",
+      "git_blob": "e58fe1a80dec1e7e4895a68652516a2c90225b96",
+      "sha256": "6ab1559aa6b2e638a2c839b5f9b05ca48729202095484cacc19ef4f6848f4022"
+    },
+    {
+      "path": "ws_main.py",
+      "git_blob": "0fd576c0258adee94afb96fbbf465729a26cd5ed",
+      "sha256": "dc5b432e2280074274c36e83bec3095297b0df237d1f474c320117f9ae4071ab"
+    }
+  ],
+  "excluded_assets": [
+    "image/README/1762438880456.png",
+    "static/icon_128.png",
+    "static/icon_256.png"
+  ]
+}
