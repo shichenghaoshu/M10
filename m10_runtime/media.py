@@ -124,7 +124,7 @@ class Media:
                 "rtspAddress": "127.0.0.1:" + str(self.config["rtsp_port"]),
                 "hls": True, "hlsAddress": "127.0.0.1:" + str(self.config["hls_port"]),
                 "hlsVariant": "mpegts", "hlsAllowOrigins": [],
-                "webrtc": False, "rtmp": False, "srt": False, "api": False,
+                "webrtc": False, "rtmp": False, "srt": False, "moq": False, "api": False,
                 "readTimeout": upstream["readTimeout"], "writeTimeout": upstream["writeTimeout"],
                 "paths": {"stream": {"source": "publisher"}}}
 

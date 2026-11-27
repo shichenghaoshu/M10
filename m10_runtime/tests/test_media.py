@@ -46,6 +46,7 @@ def test_media_listeners_are_local_and_paths_are_fixed(tmp_path):
     assert cfg["rtspAddress"].startswith("127.0.0.1:")
     assert cfg["hlsAddress"].startswith("127.0.0.1:")
     assert list(cfg["paths"]) == ["stream"]
+    assert all(cfg[name] is False for name in ["webrtc", "rtmp", "srt", "moq", "api"])
 
 
 @pytest.mark.parametrize("valid_checksum", [True, False])
